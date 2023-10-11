@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
-    <title>Xacton - Admin & Dashboard Template</title>
+    <title>Willy Sport Shoes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="MyraStudio" name="author" />
@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex align-items-center min-vh-100">
-                        <div class="w-100 d-block bg-white shadow-lg rounded my-5"> 
+                        <div class="w-100 d-block bg-white shadow-lg rounded my-5">
                             <div class="row">
                                 <div class="col-lg-5 d-none d-lg-block rounded-left">
                                  <img src="../imagen/logo.png" width="440px" height="365px" alt="">
@@ -34,7 +34,8 @@
                                 <div class="col-lg-7">
                                     <div class="p-5">
                                       
-                                        <h1 class="h5 mb-1">Bienvenidos!</h1>
+                                         <h1 class="h5 mb-1">Bienvenidos!</h1>
+
                                         <p class="text-muted mb-4">Ingrese su dirección de correo electrónico y contraseña para acceder al panel de administración.</p>
                                         <form class="user">
                                             <div class="form-group">
@@ -51,7 +52,7 @@
 
                                         <div class="row mt-4">
                                             <div class="col-12 text-center">
-                                                <p class="text-muted mb-2"><a href="pages-recoverpw.html" class="text-muted font-weight-medium ml-1">Olvidaste tu Contraseña?</a></p>
+                                                <p class="text-muted mb-2"><a href="../registrar.php" class="text-muted font-weight-medium ml-1">Olvidaste tu Contraseña?</a></p>
                                                 
                                             </div> <!-- end col -->
                                         </div>
