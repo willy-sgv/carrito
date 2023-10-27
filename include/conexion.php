@@ -14,5 +14,4 @@ if (!$conexion) {
     echo "conexion fallida";
 }
 
-
 ?>
