@@ -1,5 +1,5 @@
 <?php 
-    $base_url = "http://localhost:8888/carrito/";
+    $base_url = "https://carrowilly.webtechuanta.com/";
     $company = "Carrito de Compras";
     // <?php echo $base_url; ?>
 ?>

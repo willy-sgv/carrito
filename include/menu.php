@@ -77,7 +77,7 @@
      <div data-siplebar class="h-100">
          <div class="navbar-brand-box">
              <a href="" class="logo">
-                 <img src="<?php echo $base_url; ?>imagen/logo.png" width="100px" height="100px" alt="">
+                 <img src="<?php echo $base_url; ?>imagen/carrito.jpg" width="100px" height="100px" alt="">
                  <!-- ver el logo, puede ser imagen o texto -->
              </a>
          </div>
