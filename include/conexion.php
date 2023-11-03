@@ -1,17 +1,14 @@
 <?php
-// crear variables para base de datos
- 
-$servidor = "localhost";
-$db = "carrito_ventas";
-$usuario = "root";
-$password = "root";
+    $servidor = "localhost";
+    $db = "carrito_2";
+    $usuario = "root";
+    $password = "root";
 
-$conexion = mysqli_connect($servidor, $usuario, $password, $db);
+    $conexion = mysqli_connect($servidor, $usuario, $password, $db);
 
-// Verificar la conexion
-
-if (!$conexion) {
-    echo "conexion fallida";
-}
+    if (!$conexion){
+        echo "conexion fallida";
+    
+    }
 
 ?>

@@ -1,5 +1,5 @@
 <?php
 
-echo "willy";
+    header('location: dashboard.php')
 
 ?>
