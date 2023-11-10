@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
+    <title>WILLY</title>
 
     <link href="plantilla/Admin/vertical/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="plantilla/Admin/vertical/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
@@ -17,55 +17,44 @@ include('include/menu.php');
 <!--INICIO DE CONTENIDO-->
 <div class="main-content">
     <div class="page-content">
-        <div class="container-fluid"> 
-            <div class="row">
+        <div class="container-fluid"> <!--conteiner solo se usa el 80% de la pantalla conteiner-fluid ocupa todo-->
+            <div class="row"><!--row ayuda a ser responsive pero en bootstrap-->
                 <div class="col-12">
-                    <h4>REGISTRO DE VENTAS</h4>
+                    <h4>REGISTRO DE PEDIDOS</h4>
                     <div class="card">
                         <div class="card-body">
                             <form action="operaciones/registarUsario.php" method="POST">
-
-                            <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">VENDEDOR:</label>
-                                    <input type="text" name="fecha"class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                                </div>
-
                                 <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">DESCRIPCION:</label>
-                                    <input type="text" name="fecha"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <label class="col-lg-2 col-md-2 col-sm-12">FECHA/HORA DEL PEDIDO:</label>
+                                    <input type="datetime" name="nombreCliente"class="form-control col-lg-4 col-md-4 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">FECHA:</label>
-                                    <input type="date" name="fecha"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <label class="col-lg-2 col-md-2 col-sm-12">FECHA ENTREGA:</label>
+                                    <input type="date" name="direccion"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-md-2 col-sm-12">METODO PAGO:</label>
+                                    <input type="text" name="correo"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-md-2 col-sm-12">MONTO:</label>
+                                    <input type="number" name="telefono"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">HORA:</label>
-                                    <input type="time" name="hora"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                    <label class="col-lg-2 col-md-2 col-sm-12">COMPROBANTE:</label>
+                                    <input type="text" name="fechaPedido"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">CODIGO:</label>
-                                    <input type="number" name="codigo"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                    <label class="col-lg-2 col-md-2 col-sm-12">ESTADO:</label>
+                                    <input type="text" name="descripcionProducto"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">CANTIDAD:</label>
-                                    <input type="number" name="cantidad"class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">PRECIO UNITARIO:</label>
-                                    <input type="number" name="precio"class="form-control col-lg-7 col-md-10 col-sm-12" required>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">TOTAL:</label>
-                                    <input type="number" name="total"class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                                </div>
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12"></label>
-                                        <button type="submit" class="btn btn-success">GUARDAR</button>
+                                        <button type="submit" class="btn btn-dark">GUARDAR</button>
                                     
                                 </div>
                             </form>

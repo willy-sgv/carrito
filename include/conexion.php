@@ -1,14 +1,13 @@
-<?php
-    $servidor = "localhost";
-    $db = "carrito_2";
-    $usuario = "root";
-    $password = "root";
+<?php 
+$server ="localhost";
+$user= "root";
+$pass="root";
+$db="carrito_2";
 
-    $conexion = mysqli_connect($servidor, $usuario, $password, $db);
+$conexion = mysqli_connect($server, $user, $pass,$db);
 
-    if (!$conexion){
-        echo "conexion fallida";
-    
-    }
+if (!$conexion){
+    echo"conectado en falla";
+}
 
 ?>
