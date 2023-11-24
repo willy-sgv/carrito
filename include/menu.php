@@ -26,7 +26,7 @@
         <div data-simplebear class="h-100">
             <div class="navbar-brand-box">
                 <a href="" class="logo">
-                    VETMay
+                    logo de willy
                 </a>
             </div>
             <div id="sidebar-menu">

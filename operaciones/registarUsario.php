@@ -16,7 +16,7 @@ $pass_secure = password_hash($dni, PASSWORD_DEFAULT);
 
 if (move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_foto)) {
 
-    $consulta="INSERT INTO usuario (dni, apellidos_nombres, correo, telefono, direccion, fecha_nacimiento, password,id_rol, foto, activo, reset_password, token_password) 
+    $consulta="INSERT INTO usuario (dni, apellidos_nombres, correo, telefono, direccion, fecha_nacimiento, password,id_rol, fotos, activo, reset_password, token_password) 
             VALUES ('$dni','$apellidosNombres','$correo','$telefono','$direccion','$fechaNacimiento','$pass_secure',$id_rol,'$nombre_archivo',1,0,' ')";
 
 
