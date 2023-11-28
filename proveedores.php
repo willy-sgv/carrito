@@ -1,3 +1,4 @@
+<?php include("include/conexion.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,48 +21,62 @@ include('include/menu.php');
         <div class="container-fluid"> <!--conteiner solo se usa el 80% de la pantalla conteiner-fluid ocupa todo-->
             <div class="row"><!--row ayuda a ser responsive pero en bootstrap-->
                 <div class="col-12">
-                    <h4>REGISTRO DE PROVEEDORES</h4>
+                <?php include("include/modal_regis_provee.php"); ?> 
+                                       <h4>LISTADO DE PEDIDOS</h4>
                     <div class="card">
                         <div class="card-body">
-                            <form action="operaciones/registrarProveedor.php" method="POST">
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">RUC:</label>
-                                    <input type="number" name="ruc"class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">RAZON SOCIAL:</label>
-                                    <input type="text" name="razonSocial"class="form-control col-lg-7 col-md-10 col-sm-12" required>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">EMAIL:</label>
-                                    <input type="email" name="email"class="form-control col-lg-7 col-md-10 col-sm-12" required>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">TELEFONO:</label>
-                                    <input type="number" name="telefono"class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">DIRECCION:</label>
-                                    <input type="text" name="direccion"class="form-control col-lg-7 col-md-10 col-sm-12" required>
-                                </div>
                             
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">METODO DE PAGO:</label>
-                                    <input type="text" name="metodoPago"class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                                </div>
-                        
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12"></label>
-                                        <button type="submit" class="btn btn-dark">GUARDAR</button>
+                        <table id="basic-datatable" class="table dt-responsive nowrap">
+                            <thead>
+                                <tr>
                                     
-                                </div>
-                            </form>
+                                    <th>RUC</th>
+                                    <th>RAZON SOCIAL</th>
+                                    <th>EMAIL</th>
+                                    <th>TELEFONO</th>
+                                    <th>DIRECCION</th>
+                                    <th>METODO DE PAGO</th>
+                                  
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $consulta= "SELECT * FROM pedidos";
+                                    $ejecutar= mysqli_query($conexion, $consulta);
+                                    $contador= 0;
+                                    while ($respuesta= mysqli_fetch_array($ejecutar)) {
+                                        $contador= 1;
+                                        
+                                        echo "<br>";
+                                        echo "<td>".$contador."</td>";
+                                        echo "<td>".$respuesta['id_cliente']."</td>";
+                                        echo "<td>".$respuesta['fecha_hora_pedido']."</td>";
+                                        echo "<td>".$respuesta['fecha_entrega']."</td>";
+                                        echo "<td>".$respuesta['metodo_pago']."</td>";
+                                        echo "<td>".$respuesta['monto']."</td>";
+                                        echo "<td>".$respuesta['comprobante']."</td>";
+                                        echo "<td>".$respuesta['estado']."</td>";
+                                       
+                                        
+                                        echo "<br><button class='btn btn-success'>Editar</button><button class='btn btn-danger'>Eliminar</button>";
+
+
+
+                                        echo "</br>";
+                                    }
+
+
+
+                                    ?>
+
+            
+                                </tbody>
+                           
+                        </table>
+                           
                         </div>  
                     </div>
+               
                 </div>
             </div>
         </div>
