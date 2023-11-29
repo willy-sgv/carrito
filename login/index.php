@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>VetMay</title>
+    <title>Willy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="MyraStudio" name="author" />
@@ -29,13 +29,13 @@
                         <div class="w-100 d-block bg-white shadow-lg rounded my-5">
                             <div class="row">
                                 <div class="col-lg-6 d-none d-lg-block rounded-left">
-                                    <img src="../img/LOGO.jpeg" width="545x" height="500px" alt="">
+                                    <img src="../img/" width="545x" height="500px" alt="">
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="p-5">
                                         <div class="text-center mb-5">
-                                            <a href="index.html" class="text-dark font-size-22 font-family-secondary">
-                                                <i class="mdi"></i> <b>VETERINARIA MAY</b>
+                                            <a href="" class="text-dark font-size-22 font-family-secondary">
+                                                <i class="mdi"></i> <b>willy</b>
                                             </a>
                                         </div>
                                         <h1 class="h5 mb-1">BIENVENIDO</h1>
