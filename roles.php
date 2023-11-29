@@ -29,7 +29,7 @@ include('include/menu.php');
                                     <input type="text" name="apellidosNombres"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
                             </form>
-                        </div>  
+                        </div> 
                     </div>
                 </div>
             </div>

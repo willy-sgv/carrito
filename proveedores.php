@@ -41,7 +41,7 @@ include('include/menu.php');
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $consulta= "SELECT * FROM pedidos";
+                                    $consulta= "SELECT * FROM proveedor";
                                     $ejecutar= mysqli_query($conexion, $consulta);
                                     $contador= 0;
                                     while ($respuesta= mysqli_fetch_array($ejecutar)) {

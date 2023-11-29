@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="operaciones/registrarPedidos.php" method="POST" enctype="multipart/form-data">
+            <form action="operaciones/resgistrarPedidos.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">CLIENTE:</label>
                                     <select name="id_cliente" id="" class="form-control col-lg-4 col-md-4 col-sm-12">
