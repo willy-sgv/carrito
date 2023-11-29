@@ -29,7 +29,7 @@
                         <div class="w-100 d-block bg-white shadow-lg rounded my-5">
                             <div class="row">
                                 <div class="col-lg-6 d-none d-lg-block rounded-left">
-                                    <img src="../img/" width="545x" height="500px" alt="">
+                                    <img src="../img/logo.jpg" width="545x" height="500px" alt="">
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="p-5">
