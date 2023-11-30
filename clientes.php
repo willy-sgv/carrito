@@ -36,7 +36,7 @@ include('include/menu.php');
                         <table id="basic-datatable" class="table dt-responsive nowrap">
                             <thead>
                                 <tr>
-                                    
+                                    <th>Nº cliente</th>
                                     <th>RUC/DNI</th>
                                     <th>RAZON SOCIAL</th>
                                     <th>TELEFONO</th>
@@ -50,9 +50,9 @@ include('include/menu.php');
                                     <?php
                                     $consulta= "SELECT * FROM cliente";
                                     $ejecutar= mysqli_query($conexion, $consulta);
-                                    $contador= 0;
+                                    $contador= 1;
                                     while ($respuesta= mysqli_fetch_array($ejecutar)) {
-                                        $contador= 1;
+                                       
                                         
                                         echo "<br>";
                                         echo "<td>".$contador."</td>";

@@ -26,31 +26,31 @@
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">FECHA Y HORA DEL PEDIDO</label>
-                                    <input type="datetime" name="dni"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <input type="datetime" name="fecha_hora_pedido"class="form-control col-lg-4 col-md-4 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">FECHA ENTREGA</label>
-                                    <input type="date" name="apellidosNombres"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                    <input type="date" name="fecha_entrega"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">METODO DE PAGO</label>
-                                    <input type="number" name="correo"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                    <input type="number" name="metodo_pago"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">MONTO</label>
-                                    <input type="number" name="telefono"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <input type="number" name="monto"class="form-control col-lg-4 col-md-4 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">COMPROBANTE</label>
-                                    <input type="text" name="direccion"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                    <input type="text" name="comprobante"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">ESTADO</label>
-                                    <input type="text" name="fechaNacimiento"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <input type="text" name="estado"class="form-control col-lg-4 col-md-4 col-sm-12" required>
                                 </div>
                                 
                                 

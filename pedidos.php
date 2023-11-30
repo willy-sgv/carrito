@@ -36,7 +36,8 @@ include('include/menu.php');
                         <table id="basic-datatable" class="table dt-responsive nowrap">
                             <thead>
                                 <tr>
-                                    
+                                    <th>Nº PEDIDOS</th>
+                                    <th>ID CLIENTES</th>
                                     <th>FECHA Y HORA DEL PEDIDO</th>
                                     <th>FECHA DE ENTREGA</th>
                                     <th>METODO DE PAGO</th>

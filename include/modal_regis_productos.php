@@ -13,7 +13,7 @@
             <form action="operaciones/registrarProducto.php" method="POST" enctype="multipart/form-data">
             <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">CODIGO:</label>
-                                    <input type="number" name="codigo"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <input type="number" name="codigo" class="form-control col-lg-4 col-md-4 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
@@ -23,7 +23,7 @@
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">DETALLE:</label>
-                                    <input type="text" name="detalle"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                    <input type="text" name="detalle" class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
@@ -41,25 +41,25 @@
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">PRECIO COMPRA:</label>
-                                    <input type="number" name="precio_compra"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <input type="number" name="precio_compra" class="form-control col-lg-4 col-md-4 col-sm-12" required>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">PRECIO VENTA:</label>
-                                    <input type="number" name="precio_venta"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                    <input type="number" name="precio_venta" class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">STOCK:</label>
-                                    <input type="text" name="stock"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <input type="text" name="stock" class="form-control col-lg-4 col-md-4 col-sm-12" required>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">ESTADO:</label>
-                                    <input type="text" name="estado"class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">IMAGEN:</label>
-                                    <input type="file" name="foto" class="form-control col-lg-4 col-md-4 col-sm-12" required accept="image/*">
-                                </div>
-
+                                <label class="col-lg-2 col-md-2 col-sm-12">Estado</label>
+                               
+                                    <select name="estado" class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <option>Seleccione Estado </option>
+                                    <option>activo</option>
+                                    <option>inactivo</option>
+                                    </select>
+                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">PROVEEDOR:</label>
                                     <select name="id_proveedor" id="" class="form-control col-lg-4 col-md-4 col-sm-12">
@@ -72,6 +72,12 @@
                                         ?>
                                     </select>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-md-2 col-sm-12">IMAGEN:</label>
+                                    <input type="file" name="img" class="form-control col-lg-4 col-md-4 col-sm-12" required accept="image/*">
+                                </div>
+
+                                
                                 
                               
 

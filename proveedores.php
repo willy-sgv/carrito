@@ -22,13 +22,13 @@ include('include/menu.php');
             <div class="row">
                 <div class="col-12">
                     <?php include("include/modal_regis_provee.php"); ?> 
-                    <h4>LISTADO DE PEDIDOS</h4>
+                    <h4>LISTADO DE PROVEEDORES</h4>
                     <div class="card">
                         <div class="card-body">
                             <table id="basic-datatable" class="table dt-responsive nowrap">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>NRO</th>
                                         <th>RUC</th>
                                         <th>RAZON SOCIAL</th>
                                         <th>CORREO</th>
@@ -47,7 +47,7 @@ include('include/menu.php');
                                     while ($respuesta = mysqli_fetch_array($ejecutar)) {
                                         echo "<tr>";
                                         echo "<td>".$contador."</td>";
-                                        echo "<td>".$respuesta['id']."</td>";
+                                       
                                         echo "<td>".$respuesta['ruc']."</td>";
                                         echo "<td>".$respuesta['razon_social']."</td>";
                                         echo "<td>".$respuesta['correo']."</td>";

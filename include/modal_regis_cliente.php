@@ -13,22 +13,22 @@
             <form action="operaciones/registroClientes.php" method="POST" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">RUC/DNI:</label>
-                                    <input type="number" name="dni"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <input type="number" name="ruc_dni"class="form-control col-lg-4 col-md-4 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">RAZON SOCIAL:</label>
-                                    <input type="text" name="apellidosNombres"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                    <input type="text" name="razon_social"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">TELEFONO</label>
-                                    <input type="number" name="correo"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                    <input type="number" name="telefono"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">CORREO</label>
-                                    <input type="email" name="telefono"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <input type="email" name="correo"class="form-control col-lg-4 col-md-4 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">DIRECCION DE ENVIO</label>
-                                    <input type="text" name="fechaNacimiento"class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <input type="text" name="direccion_envio"class="form-control col-lg-4 col-md-4 col-sm-12" required>
                                 </div>
                                 
                                 

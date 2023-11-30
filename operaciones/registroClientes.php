@@ -1,12 +1,12 @@
 <?php
 include("../include/conexion.php");
 
-$dniRuc=$_POST['dniRuc'];
-$razonSocial=$_POST['razonSocial'];
+$dniRuc=$_POST['ruc_dni'];
+$razonSocial=$_POST['razon_social'];
 $telefono=$_POST['telefono'];
-$correo=$_POST['correo'];
+$correo=$_POST['telefono'];
 $direccion=$_POST['direccion'];
-$direccionEnvio=$_POST['direccionEnvio'];
+$direccionEnvio=$_POST['direccion_envio'];
 
 
 

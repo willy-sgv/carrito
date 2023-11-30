@@ -29,7 +29,7 @@ include('include/menu.php');
                         <table id="basic-datatable" class="table dt-responsive nowrap">
                             <thead>
                                 <tr>
-                                    
+                                    <th>Nº PRODUCTOS</th>
                                     <th>CODIGO</th>
                                     <th>DESCRIPCION</th>
                                     <th>DETALLE</th>
@@ -47,9 +47,9 @@ include('include/menu.php');
                                     <?php
                                     $consulta= "SELECT * FROM producto";
                                     $ejecutar= mysqli_query($conexion, $consulta);
-                                    $contador= 0;
+                                    $contador= 1;
                                     while ($respuesta= mysqli_fetch_array($ejecutar)) {
-                                        $contador= 1;
+                                      
                                         
                                         echo "<br>";
                                         echo "<td>".$contador."</td>";

@@ -50,9 +50,9 @@ include('include/menu.php');
                                     <?php 
                                     $consulta="SELECT * FROM ventas";
                                     $ejecutar= mysqli_query($conexion, $consulta);
-                                    $contador = 0;
+                                    $contador = 1;
                                     while ($respuesta = mysqli_fetch_array($ejecutar)) {
-                                        $contador +=1; 
+                                        
                                         echo "<tr>";
                                         echo "<td>".$contador."</td>";
                                         echo "<td>".$respuesta['serie_venta']."</td>";
