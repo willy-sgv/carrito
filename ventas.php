@@ -28,8 +28,9 @@ include('include/menu.php');
             <div class="row"><!--row ayuda a ser responsive pero en bootstrap-->
                 <div class="col-12">
 
-                    <?php include("include/modal_regis_venta.php"); ?>
+                   
                     <h4>LISTA DE VENTAS</h4>
+                    <a href="ventas1.php" class="btn btn-success">+Nuevo</a>
                     <div class="card">
                         <div class="card-body">
 
@@ -39,11 +40,11 @@ include('include/menu.php');
                                         <th>NRO REGISTRO</th>
                                         <th>SERIE VENTA</th>
                                         <th>NUMERO VENTA</th>
-                                        <th>APELLIDOS Y NOMBRES</th>
                                         <th>FECHA HORA Y VENTA</th>
                                         <th>MONTO TOTAL</th>
                                         <th>CLIENTE</th>
                                         <th>USUARIO</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
