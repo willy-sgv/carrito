@@ -62,15 +62,7 @@ include('include/menu.php');
                                     <label class="col-lg-1 col-md-1 col-sm-1"></label>
                                     <button class="btn btn-info col-lg-1 col-md-1 col-sm-2">Buscar</button>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-md-4 col-sm-12">Fecha y Hora</label>
-                                    <label for="" class="form-control col-lg-7 col-md-10 col-sm-12">
-
-                                        <?php 
-                                        date_default_timezone_set("America/Lima");
-                                        echo date("d-m-Y h:i:s"); ?>
-                                    </label>
-                                </div>
+                                
                                 
                                     </form>
                                 </div>
