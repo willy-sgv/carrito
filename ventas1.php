@@ -44,7 +44,7 @@ include('include/menu.php');
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-6">APELLIDOS Y NOMBRES:</label>
-                                    <input type="text" name="nombres"class="form-control col-lg-6 col-md-6 col-sm-12" readonly>
+                                    <input type="text" name="nombres"class="form-control col-lg-6 col-md-6 col-sm-12" required>
                                   
                                 </div>
                                 <div class="form-group row">
@@ -67,38 +67,45 @@ include('include/menu.php');
                                     </form>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-4">PRODUCTOS</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" width="5%">Nro</th>
+                            <th scope="col" width="50%">Descripción</th>
+                            <th scope="col" width="10%">Cantidad</th>
+                            <th scope="col" width="10%">P. Unit</th>
+                            <th scope="col" width="10%">Importe</th>
+                            <th scope="col" width="15%">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Nombre Producto</td>
+                            <td><input type="number" value="2" class="form-control" /></td>
+                            <td>S/. 50.00</td>
+                            <td>S/. 100.00</td>
+                            <td>
+                                <button class="btn btn-info btn-sm">Editar</button>
+                                <button class="btn btn-danger btn-sm">Eliminar</button>
+                            </td>
+                        </tr>
+                        <!-- Agrega más filas según sea necesario -->
 
-                                <table class="table table-bordered mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="6" class="text-center">PRODUCTOS</th>
-                                        </tr>
-                                        <tr>
-                                            <th width="5%">Nro</th>
-                                            <th width="60%">Descripcion</th>
-                                            <th width="10%">Cantidad</th>
-                                            <th width="10%">P.Unit</th>
-                                            <th width="10%">Importe</th>
-                                            <th width="5%"></th> 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <td>I</td>
-                                        <td>Nombre Producto</td>
-                                        <td><input type="number" value="2"></td>
-                                        <td>S/. 50.00</td>
-                                        <td>S/. 100.00</td>
-                                        <td><button class="btn btn-danger">X</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="4" class="text-center">Total</td>
-                                            <td>S/. 100.00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                
-                            </div>
+                        <tr>
+                            <td colspan="4" class="text-center font-weight-bold">Total</td>
+                            <td colspan="2">S/. 100.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
                         </div>  
                     </div>
                 </div>
