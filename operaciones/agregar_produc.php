@@ -13,11 +13,11 @@ if ($contar_r > 0) {
     $array_productos[$id] = 1;
 
     if (array_key_exists($array_productos[$id],$array_productos)) {
-        $array_productos [$id] = 1;
+        $array_productos [$id] += 1;
 
     }else {
         $array_productos[$id] = 1;
     }
 }
-
+print_r($array_productos);
 ?>
