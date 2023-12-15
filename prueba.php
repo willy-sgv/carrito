@@ -1,7 +1,7 @@
 <?php
 include('include/conexion.php');
 session_start();
-$_SESSION['productos'] = array();
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,6 @@ $_SESSION['productos'] = array();
 
     <!-- Script obtenido desde CDN jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
 
     <style>
         .cantidad {
@@ -49,38 +48,33 @@ $_SESSION['productos'] = array();
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <form role="form" action="operaciones/registrar_venta.php" method="POST">
+                                        <form role="form" id="myform" action="" class="form-horizontal form-label-left input_mask" method="POST">
+
+
+
                                             <div class="form-group row">
                                                 <label class="col-lg-2 col-md-2 col-sm-6">DNI: </label>
-                                                <input type="number" name="dni" id="dni_cliente" class="form-control col-lg-2 col-md-2 col-sm-6" required placeholder="dni cliente">
+                                                <input type="number" name="dni" class="form-control col-lg-2 col-md-2 col-sm-6" required placeholder="dni cliente">
                                                 <label class="col-lg-1 col-md-1 col-sm-1"></label>
-                                                <button type="button" class="btn btn-info col-lg-1 col-md-1 col-sm-2" onclick="buscar_cliente();">Buscar</button>
+                                                <button class="btn btn-info col-lg-1 col-md-1 col-sm-2">Buscar</button>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-2 col-md-2 col-sm-6">Apellidos y Nombres: </label>
-                                                <div id="cliente_datos" class=" col-lg-6 col-md-6 col-sm-12">
-                                                    <input type="text" class="form-control col-lg-6 col-md-6 col-sm-12" readonly>
-                                                </div>
+                                                <input type="text" id="nombres" class="form-control col-lg-6 col-md-6 col-sm-12" readonly>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-2 col-md-2 col-sm-6">Usuario: </label>
                                                 <select name="usuario" id="usuario" class="form-control col-lg-6 col-md-6 col-sm-12">
-                                                    <option value=""></option>
-                                                    <?php
-                                                    $consulta = "SELECT * FROM usuario";
-                                                    $ejecutar = mysqli_query($conexion, $consulta);
-                                                    while ($usuario = mysqli_fetch_array($ejecutar)) {
-                                                        echo '<option value="'.$usuario['id'].'">'.$usuario['apellidos_nombres'].'</option>';
-                                                    }
-
-                                                    ?>
+                                                    <option value="1">Usuario 1</option>
+                                                    <option value="2">Usuario 2</option>
+                                                    <option value="3">Usuario 3</option>
                                                 </select>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-2 col-md-2 col-sm-6">producto: </label>
-                                                <input type="number" name="producto" id="producto" class="form-control col-lg-2 col-md-2 col-sm-6" placeholder="código producto">
+                                                <input type="number" name="producto" id="producto" class="form-control col-lg-2 col-md-2 col-sm-6" required placeholder="código producto">
                                                 <label class="col-lg-1 col-md-1 col-sm-1"></label>
-                                                <button type="button" class="btn btn-info col-lg-1 col-md-1 col-sm-2" onclick="agregar_producto();">Agregar</button>
+                                                <button type="button" class="btn btn-info" onclick="agregar_producto();">Agregar Producto</button>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-2 col-md-2 col-sm-6">Fecha y Hora: </label>
@@ -89,9 +83,6 @@ $_SESSION['productos'] = array();
                                                     date_default_timezone_set("America/Lima");
                                                     echo date("d-m-Y h:i:s"); ?>
                                                 </label>
-                                            </div>
-                                            <div class="form-group row">
-                                                <button type="submit" class="btn btn-danger">Registrar Venta</button>
                                             </div>
                                         </form>
                                     </div>
@@ -110,31 +101,33 @@ $_SESSION['productos'] = array();
                                                     <th width="5%"></th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="contenido_tabla">
-                                                <?php
-                                                $array_productos = $_SESSION['productos'];
-                                                foreach ($array_productos as $key => $value) {
-                                                    // key => id      value => cantidad
-                                                    $consulta = "SELECT * FROM producto WHERE id='$key'";
-                                                    $ejecutar = mysqli_query($conexion, $consulta);
-                                                    $producto = mysqli_fetch_array($ejecutar);
-
-                                                ?>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>nombre producto</td>
-                                                        <td><input type="number" value="2" class="cantidad" onchange="actualizar_cantidad(id);"></td>
-                                                        <td>S/. 50.00</td>
-                                                        <td>S/. 100.00</td>
-                                                        <td><button class="btn btn-danger" onclick="eliminar_producto(id);">X</button></td>
-                                                    </tr>
-                                                <?php } ?>
-                                                <tr>
-                                                    <td colspan="4" class="text-center">TOTAL</td>
-                                                    <td>S/. 100.00</td>
-                                                </tr>
+                                            <tbody id="detalle_productos">
+                                                <input type="hidden" name="array_productos" id="array_productos" value="">
+                                                    <?php
+                                                    $cont = 0;
+                                                    $suma_total = 0;
+                                                    $tabla = "";
+                                                    foreach ($_SESSION['productos'] as $key => $value) {
+                                                        $b_producto = "SELECT * FROM producto WHERE id='$key'";
+                                                        $ejec_b_prod = mysqli_query($conexion, $b_producto);
+                                                        $r_b_producto = mysqli_fetch_array($ejec_b_prod);
+                                                        $cont++;
+                                                        $tabla .= "<tr>";
+                                                        $importe = $r_b_producto['precio_venta']*$value;
+                                                        $suma_total += $importe;
+                                                        $tabla .= "<td>".$cont."</td><td>".$r_b_producto['descripcion']."</td><td><input type='number' id='".$r_b_producto['id']."' onchange='agregar_cantidad(".$r_b_producto['id'].")' class='form-control' value='".$value."' ></td><td>".$r_b_producto['precio_venta']."</td><td>".$importe."</td><td><button class='btn btn-danger'>X</button></td>";
+                                                        $tabla .= "</tr>";
+                                                    }
+                                                    $tabla .= "<tr><td colspan='4' class='text-center'>TOTAL</td><td>".$suma_total."</td></tr>";
+                                                    echo $tabla;
+                                                    ?>
+                                                    
                                             </tbody>
                                         </table>
+
+                                        <?php
+                                                 var_dump($_SESSION['productos']);
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -175,56 +168,46 @@ $_SESSION['productos'] = array();
     <!-- App js -->
     <script src="plantilla/Admin/vertical/assets/js/theme.js"></script>
 
-    <script>
+    
+    <script type="text/javascript">
         function agregar_producto() {
-            var codigo = $('#producto').val();
+            var array = $('#array_productos').val();
+            var producto = $('#producto').val();
             $.ajax({
                 type: "POST",
-                url: "operaciones/agregar_producto.php",
+                url: "operaciones/generar_lista_prueba.php",
                 data: {
-                    cod: codigo
+                    lista: array,
+                    elemento: producto
                 },
                 success: function(r) {
-                    $('#contenido_tabla').html(r);
+                    
+                    $('#detalle_productos').html(r);
                 }
-            })
+            });
             document.getElementById('producto').value = '';
-
-        };
-
-        function actualizar_cantidad(id) {
-            var cantidad = $('#cantidad_' + id).val();
+        }
+    </script>
+    <script type="text/javascript">
+        function agregar_cantidad(id) {
+            var cantidad = $('#'+id).val();
             $.ajax({
                 type: "POST",
-                url: "operaciones/actualizar_cantidad.php",
+                url: "operaciones/agregar_cantidad_prueba.php",
                 data: {
-                    id_p: id,
+                    producto: id,
                     cant: cantidad
                 },
                 success: function(r) {
-                    $('#contenido_tabla').html(r);
+                    
+                    $('#detalle_productos').html(r);
                 }
-            })
-        };
-
-        function eliminar_producto(id) {
-
-        };
-
-        function buscar_cliente() {
-            var dni = $('#dni_cliente').val();
-            $.ajax({
-                type: "POST",
-                url: "operaciones/buscar_cliente.php",
-                data: {
-                    dni_c: dni
-                },
-                success: function(r) {
-                    $('#cliente_datos').html(r);
-                }
-            })
-        };
+            });
+        }
     </script>
+
+
+
 </body>
 
 </html>

@@ -2,29 +2,16 @@
 session_start();
 include("../include/conexion.php");
 
-$codigo = $_POST['cod'];
+$id = $_POST['id_p'];
+$cantidad = $_POST['cant'];
+
 $array_productos = $_SESSION['productos'];
 
-$consulta = "SELECT * FROM producto WHERE codigo='$codigo'";
-$ejecutar = mysqli_query($conexion, $consulta);
-$producto = mysqli_fetch_array($ejecutar);
-$id = $producto['id'];
-$contar_r = mysqli_num_rows($ejecutar);
-
-if ($producto['stock']>0) {
-    if ($contar_r > 0) {
-
-        if (array_key_exists($id, $array_productos)) {
-            $cantidad = $array_productos[$id];
-            $cantidad = $cantidad+1;
-            $array_productos[$id] = $cantidad;
-        }else {
-            $array_productos[$id] = 1;
-        }
-        $_SESSION['productos'] = $array_productos;
-    }
+if (array_key_exists($id, $array_productos)) {
+    $array_productos[$id] = $cantidad;
 }
 
+$_SESSION['productos'] = $array_productos;
 
 $contador = 0;
 $suma_total = 0;
@@ -53,4 +40,4 @@ $para_imprimir.='<tr>
 
 echo $para_imprimir;
 
-
+?>
