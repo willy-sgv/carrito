@@ -38,8 +38,8 @@
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="fas fa-cogs"></i>Ventas</a>
                         <ul>
-                        <li><a href="ventas.php">Ventas</a></li>
-                        <li><a href="detalle_venta.php">Detalle venta</a></li>
+                        <li><a href="ventas1.php">Ventas</a></li>
+                        
                         </ul>
                     </li>
                     <li>

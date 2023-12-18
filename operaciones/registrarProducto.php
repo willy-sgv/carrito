@@ -16,7 +16,7 @@ $ruta_foto = "../img_productos/".$nombre_archivo;
 
 //$pass_secure = password_hash($dni, PASSWORD_DEFAULT);
 
-if (move_uploaded_file($_FILES['img']['tmp_name'], $ruta_foto)) {
+if (move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_foto)) {
 
     $consulta="INSERT INTO producto (codigo, descripcion, detalle, id_categoria, precio_compra, precio_venta, stock, estado, imagen, id_proveedor) 
             VALUES ('$codigo','$descripcion','$detalle', '$categoria', '$precioCompra','$precioVenta','$stock','$estado','$nombre_archivo', '$proveedor')";

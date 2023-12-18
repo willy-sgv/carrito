@@ -36,7 +36,7 @@
 
                                 <div class="form-group row">
                                     <label class="col-lg-2 col-md-2 col-sm-12">METODO DE PAGO</label>
-                                    <input type="number" name="metodo_pago"class="form-control col-lg-7 col-md-10 col-sm-12" required>
+                                    <input type="text" name="metodo_pago"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
 
                                 <div class="form-group row">
@@ -49,9 +49,14 @@
                                     <input type="text" name="comprobante"class="form-control col-lg-7 col-md-10 col-sm-12" required>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-2 col-md-2 col-sm-12">ESTADO</label>
-                                    <input type="text" name="estado"class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                                </div>
+                                <label class="col-lg-2 col-md-2 col-sm-12">Estado</label>
+                               
+                                    <select name="estado" class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                    <option>Seleccione Estado </option>
+                                    <option>activo</option>
+                                    <option>inactivo</option>
+                                    </select>
+                                 </div>
                                 
                                 
                               

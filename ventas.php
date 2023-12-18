@@ -49,7 +49,7 @@ $_SESSION['productos'] = array();
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <form role="form" action="operaciones/registrar_venta.php" method="POST">
+                                        <form role="form" action="operaciones/registrarVentas.php" method="POST">
                                             <div class="form-group row">
                                                 <label class="col-lg-2 col-md-2 col-sm-6">DNI: </label>
                                                 <input type="number" name="dni" id="dni_cliente" class="form-control col-lg-2 col-md-2 col-sm-6" required placeholder="dni cliente">
@@ -180,7 +180,7 @@ $_SESSION['productos'] = array();
             var codigo = $('#producto').val();
             $.ajax({
                 type: "POST",
-                url: "operaciones/agregar_producto.php",
+                url: "operaciones/agregar_produc.php",
                 data: {
                     cod: codigo
                 },
@@ -196,7 +196,7 @@ $_SESSION['productos'] = array();
             var cantidad = $('#cantidad_' + id).val();
             $.ajax({
                 type: "POST",
-                url: "operaciones/actualizar_cantidad.php",
+                url: "operaciones/actualizar_cant.php",
                 data: {
                     id_p: id,
                     cant: cantidad
@@ -208,7 +208,16 @@ $_SESSION['productos'] = array();
         };
 
         function eliminar_producto(id) {
-
+            $.ajax({
+                type: "POST",
+                url: "operaciones/eliminar_produc_tabla.php",
+                data: {
+                    id_p: id
+                },
+                success: function(r) {
+                    $('#contenido_tabla').html(r);
+                }
+            })
         };
 
         function buscar_cliente() {

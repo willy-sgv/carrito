@@ -47,7 +47,6 @@ include('include/menu.php');
                                     while ($respuesta = mysqli_fetch_array($ejecutar)) {
                                         echo "<tr>";
                                         echo "<td>".$contador."</td>";
-                                       
                                         echo "<td>".$respuesta['ruc']."</td>";
                                         echo "<td>".$respuesta['razon_social']."</td>";
                                         echo "<td>".$respuesta['correo']."</td>";

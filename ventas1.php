@@ -1,19 +1,12 @@
-<?php include("include/conexion.php"); 
-session_start();
-
-$_SESSION['productos'] = array();
-
-?>
+<?php include("include/conexion.php");?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willy</title>
+    <title>willy</title>
 
-    <!-- Stylesheets -->
     <link href="plantilla/Admin/vertical/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="plantilla/Admin/vertical/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="plantilla/Admin/vertical/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
@@ -23,146 +16,76 @@ $_SESSION['productos'] = array();
     <link href="plantilla/Admin/plugins/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
     <link href="plantilla/Admin/plugins/datatables/select.bootstrap4.css" rel="stylesheet" type="text/css" />
 
-
-        <!-- Script obtenido desde CDN jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-    <!-- Custom Styles -->
-    <style>
-        body {
-            background: linear-gradient(to right, #33DAFF, #FFE633);
-        }
-
-        .content-container {
-            background: linear-gradient(to right, #33DAFF, #FFE633);
-            color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .products-container {
-            background: linear-gradient(to right, #33DAFF, #FFE633);
-            color: #FF334C;
-            padding: 20px;
-            border-radius: 10px;
-        }
-    </style>
 </head>
-
 <body>
-    <?php include('include/menu.php'); ?>
+<?php
+include('include/menu.php');
+?>
+<!--INICIO DE CONTENIDO-->
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid"> <!--conteiner solo se usa el 80% de la pantalla conteiner-fluid ocupa todo-->
+            <div class="row"><!--row ayuda a ser responsive pero en bootstrap-->
+                <div class="col-12">
 
-    <!-- Content Start -->
-    <div class="main-content">
-        <div class="page-content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <h4>REGISTRAR NUEVA VENTA</h4>
-                        <a href="ventas1.php" class="btn btn-success">+Nuevo</a>
+                <a href="ventas.php" class="btn btn-dark"> +Nuevo</a>
+                    <h4>RELACION DE VENTAS</h4>
 
-                        <!-- Main Card -->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12" style="background: linear-gradient(to right, #33FFC7, #DDFF33); color: #ffffff; padding: 20px; border-radius: 10px;">
-                                        <form action="">
-                                            <div class="form-group row">
-                                                <label class="col-lg-2 col-md-2 col-sm-6">DNI:</label>
-                                                <input type="number" name="dni" class="form-control col-lg-4 col-md-4 col-sm-12" required placeholder="dni cliente">
-                                                <label class="col-lg-1 col-md-1 col-sm-1"></label>
-                                                <button class="btn btn-info col-lg-1 col-md-1 col-sm-2">Buscar</button>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-2 col-md-2 col-sm-6">APELLIDOS Y NOMBRES:</label>
-                                                <input type="text" name="nombres" class="form-control col-lg-6 col-md-6 col-sm-12" required>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-2 col-md-2 col-sm-6">USUARIO</label>
-                                                <select name="usuario" id="usuario" class="form-control col-lg-6 col-md-6 col-sm-12">
-                                                    <option value=""></option>
-                                                    <option value="1">Usuario 1</option>
-                                                    <option value="2">Usuario 2</option>
-                                                    <option value="3">Usuario 3</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-2 col-md-2 col-sm-6">PRODUCTO:</label>
-                                                <input type="number" name="producto" id="producto" class="form-control col-lg-4 col-md-4 col-sm-12" required placeholder="codigo producto">
-                                                <label class="col-lg-1 col-md-1 col-sm-1"></label>
-                                                <button type="button" class="btn btn-info col-lg-1 col-md-1 col-sm-2" onclick="agregar_producto();">Buscar</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="card" style="background: linear-gradient(to right, #5BFF33, #33FFF9); color: #FF334C; padding: 20px; border-radius: 10px;">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-center mb-4">PRODUCTOS</h5>
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered table-hover mb-0">
-                                                        <thead class="thead-light">
-                                                            <tr>
-                                                                <th scope="col" width="5%">Nro</th>
-                                                                <th scope="col" width="50%">Descripción</th>
-                                                                <th scope="col" width="10%">Cantidad</th>
-                                                                <th scope="col" width="10%">P. Unit</th>
-                                                                <th scope="col" width="10%">Importe</th>
-                                                                <th scope="col" width="15%">Acciones</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="contenido_tabla">
-                                                            <?php 
-                                                            $array_productos = $_SESSION['productos'];
-                                                            foreach ($array_productos as $key => $value){
-                                                                // key = id  value= cantidad
-                                                                $consulta = "SELECT * FROM producto WHERE id=$key";
-                                                                $ejecutar = mysqli_query($conexion, $consulta);
-                                                                $producto = mysqli_fetch_array($ejecutar);
-                                                            
-                                                            
-                                                            ?>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Nombre Producto</td>
-                                                                <td><input type="number" value="2" class="form-control" onchange="actualizar_cantidad(id);"></td>
-                                                                <td>S/. 50.00</td>
-                                                                <td>S/. 100.00</td>
-                                                                <td>
-                                                                    
-                                                                    <button class="btn btn-danger btn-sm" onclick="eliminar_producto(id);">Eliminar</button>
-                                                                </td>
-                                                            </tr>
-                                                            <?php } ?>
-                                                            <!-- Agrega más filas según sea necesario -->
+                    <div class="card">
+                        <div class="card-body">
 
-                                                            <tr>
-                                                                <td colspan="4" class="text-center font-weight-bold">Total</td>
-                                                                <td colspan="2">S/. 100.00</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <table id="basic-datatable" class="table dt-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>NRO REGISTRO</th>
+                                        <th>SERIE VENTA</th>
+                                        <th>NUMERO VENTA</th>
+                                        <th>FECHA HORA Y VENTA</th>
+                                        <th>MONTO TOTAL</th>
+                                        <th>CLIENTE</th>
+                                        <th>USUARIO</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                    $consulta="SELECT * FROM ventas";
+                                    $ejecutar= mysqli_query($conexion, $consulta);
+                                    $contador = 0;
+                                    while ($respuesta = mysqli_fetch_array($ejecutar)) {
+                                        $contador +=1; 
+                                        echo "<tr>";
+                                        echo "<td>".$contador."</td>";
+                                        echo "<td>".$respuesta['serie_venta']."</td>";
+                                        echo "<td>".$respuesta['numero_venta']."</td>";
+                                        echo "<td>".$respuesta['fecha_hora_venta']."</td>";
+                                        echo "<td>".$respuesta['monto_total']."</td>";
+                                        echo "<td>".$respuesta['id_cliente']."</td>";
+                                        echo "<td>".$respuesta['id_usuario']."</td>";
+                                        echo "<td><button class= 'btn btn-success'>Editar</button> <button class= 'btn btn-danger'>Eliminar</button></td>";
+                                        echo "</tr>";
+
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+
+                        </div>  
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Content End -->
+</div>
+<!--FIN DE CONTENIDO-->
 
-    <!-- JavaScript files -->
+
     <script src="plantilla/Admin/vertical/assets/js/jquery.min.js"></script>
     <script src="plantilla/Admin/vertical/assets/js/bootstrap.bundle.min.js"></script>
     <script src="plantilla/Admin/vertical/assets/js/metismenu.min.js"></script>
     <script src="plantilla/Admin/vertical/assets/js/waves.js"></script>
     <script src="plantilla/Admin/vertical/assets/js/simplebar.min.js"></script>
 
-    <!-- Third-party JavaScript files -->
+    <!-- third party js -->
     <script src="plantilla/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plantilla/Admin/plugins/datatables/dataTables.bootstrap4.js"></script>
     <script src="plantilla/Admin/plugins/datatables/dataTables.responsive.min.js"></script>
@@ -176,34 +99,12 @@ $_SESSION['productos'] = array();
     <script src="plantilla/Admin/plugins/datatables/dataTables.select.min.js"></script>
     <script src="plantilla/Admin/plugins/datatables/pdfmake.min.js"></script>
     <script src="plantilla/Admin/plugins/datatables/vfs_fonts.js"></script>
+    <!-- third party js ends -->
 
     <!-- Datatables init -->
     <script src="plantilla/Admin/vertical/assets/pages/datatables-demo.js"></script>
 
-    <!-- Custom JavaScript file -->
+    <!-- App js -->
     <script src="plantilla/Admin/vertical/assets/js/theme.js"></script>
-
-    <script>
-        function agregar_producto(){
-            var codigo = $('#producto').val();
-            $.ajax({
-                type:"POST",
-                url:"operaciones/agregar_produc.php",
-                data:{cod:codigo},
-                success:function(r){
-                    $('#contenido_tabla').html(r);
-                }
-            })
-        }
-
-        function actualizar_cantidad(id){
-
-        }
-
-        function eliminar_producto(id){
-
-        }
-    </script>
 </body>
-
 </html>

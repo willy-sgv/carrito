@@ -12,7 +12,7 @@ $cont_r = mysqli_num_rows($ejec_b_producto);
 
 if ($cont_r > 0) {
     $r_b_producto = mysqli_fetch_array($ejec_b_producto);
-    if ($array_productos=='') {
+    if ($array_productos == '') {
         $array_productos = array();
     }
     //si ya existe un producto agregado
@@ -20,29 +20,25 @@ if ($cont_r > 0) {
         $cant = $array_productos[$r_b_producto['id']];
         $cant = $cant + 1;
         $array_productos[$r_b_producto['id']] = $cant;
-    }else {
+    } else {
         $array_productos[$r_b_producto['id']] = 1;
     }
 }
-    $cont = 0;
-    $suma_total = 0;
-    $tabla = "";
-    foreach ($array_productos as $key => $value) {
-        $buscar_producto = "SELECT * FROM producto WHERE id='$key'";
-        $ejec_b_producto = mysqli_query($conexion, $buscar_producto);
-        $r_b_producto = mysqli_fetch_array($ejec_b_producto);
-        $cont++;
-        $tabla .= "<tr>";
-        $importe = $r_b_producto['precio_venta']*$value;
-        $suma_total += $importe;
-        $tabla .= "<td>".$cont."</td><td>".$r_b_producto['descripcion']."</td><td><input type='number' class='form-control' value='".$value."' ></td><td>".$r_b_producto['precio_venta']."</td><td>".$importe."</td><td><button class='btn btn-danger'>X</button></td>";
-        $tabla .= "</tr>";
-    }
-    $_SESSION['productos'] = $array_productos;
-    
-    $tabla .= "<tr><td colspan='4' class='text-center'>TOTAL</td><td>".$suma_total."</td></tr>";
-    echo $tabla;
+$cont = 0;
+$suma_total = 0;
+$tabla = "";
+foreach ($array_productos as $key => $value) {
+    $buscar_producto = "SELECT * FROM producto WHERE id='$key'";
+    $ejec_b_producto = mysqli_query($conexion, $buscar_producto);
+    $r_b_producto = mysqli_fetch_array($ejec_b_producto);
+    $cont++;
+    $tabla .= "<tr>";
+    $importe = $r_b_producto['precio_venta'] * $value;
+    $suma_total += $importe;
+    $tabla .= "<td>" . $cont . "</td><td>" . $r_b_producto['descripcion'] . "</td><td><input type='number' class='form-control' value='" . $value . "' ></td><td>" . $r_b_producto['precio_venta'] . "</td><td>" . $importe . "</td><td><button class='btn btn-danger'>X</button></td>";
+    $tabla .= "</tr>";
+}
+$_SESSION['productos'] = $array_productos;
 
-
-
-?>
+$tabla .= "<tr><td colspan='4' class='text-center'>TOTAL</td><td>" . $suma_total . "</td></tr>";
+echo $tabla;
